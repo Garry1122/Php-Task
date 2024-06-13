@@ -7,7 +7,11 @@
 <body>
     <h1>Результаты распределения сделок</h1>
     
+    <?php
+    asort($operators);
+    ?>
     <pre><?php print_r($operators); ?></pre>
     <pre><?php print_r($deals); ?></pre>
+
 </body>
 </html>

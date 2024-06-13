@@ -6,4 +6,4 @@ use App\Controllers\DealsController;
 
 $controller = new DealsController();
 $controller->index();
-
+?>

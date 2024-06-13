@@ -8,12 +8,18 @@ class DealsController
 {
     public function index()
     {
-        $operators = Operator::getAll();
-        $deals = ['DEAL' => 56];
+        try {
+            $operators = Operator::getAll();
+            $deals = ['DEAL' => 60];
 
-        Distributor::distributeDeals($operators, $deals);
+            Distributor::distributeDeals($operators, $deals);
 
-        include __DIR__ . '/../Views/deals_distribution.php';
+            require_once __DIR__ . '/../Views/deals_distribution.php';
+
+        } catch (\Exception $e) {
+            error_log($e->getMessage());
+            echo "Произошла ошибка при распределении сделок.";
+        }
     }
 }
-
+?>
